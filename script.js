@@ -59,10 +59,26 @@ class Calculator {
         this.prevOperand = ''
     }
 
+    displayNumber(number) {
+        let result
+        const integerDigits = parseFloat(number.toString().split('.')[0])
+        const decimalDigits = number.toString().split('.')[1]
+        if (isNaN(integerDigits)) {
+            result = ''
+        } else {
+            result = integerDigits.toLocaleString('fr')
+        }
+        if (decimalDigits != undefined) {
+            return `${result}.${decimalDigits}`
+        } else {
+            return result
+        }
+    }
+
     updateDisplay() {
-        this.currOperandTextElement.innerText = this.currOperand
+        this.currOperandTextElement.innerText = this.displayNumber(this.currOperand)
         if (this.operation != undefined) {
-            this.prevOperandTextElement.innerText = `${this.prevOperand} ${this.operation}`    
+            this.prevOperandTextElement.innerText = `${this.displayNumber(this.prevOperand)} ${this.operation}`    
         } else {
             this.prevOperandTextElement.innerText = ''
         }
