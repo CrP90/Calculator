@@ -7,7 +7,7 @@
 body {
     padding: 0;
     margin: 0;
-    background: linear-gradient(to right, rgba(52, 190, 82, 0.5), rgb(34, 120, 201));
+    background: linear-gradient(to right, rgba(0, 0, 0, .3), rgb(0, 0, 0, .9));
 }
 
 .calculator-grid {
@@ -16,7 +16,7 @@ body {
     align-content: center;
     min-height: 100vh;
     grid-template-columns: repeat(4, 75px);
-    grid-template-rows: repeat(5, 75px) minmax(75px, auto);
+    grid-template-rows: minmax(75px, auto) repeat(5, 75px);
 }
 
 .calculator-grid > button {
@@ -24,12 +24,12 @@ body {
     cursor: pointer;
     background-color: black;
     color: white;
-    border: solid 1px rgba(255, 255, 255, 0.35);
+    border: solid 1px rgba(255, 255, 255, 0.3);
 }
 
 .calculator-grid >button:hover {
-    background-color: rgba(245, 245, 245, 0.65);
-    color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(245, 245, 245, 0.5);
+    color: rgba(0, 0, 0, 0.9);
 }
 
 .span-two {
@@ -40,7 +40,7 @@ body {
     background-color: rgba(0, 0, 0, 0.75);
     color: white;
     padding: 5px;
-    border: solid 2px rgba(255, 255, 255, 0.35);
+    border: solid 2px rgba(255, 255, 255, 0.3);
     grid-column: 1 / -1;
     display: flex;
     align-items: flex-end;
