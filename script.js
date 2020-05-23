@@ -48,7 +48,7 @@ class Calculator {
             case '*':
                 result = prev * curr
                 break
-            case '÷':
+            case '÷': case '/':
                 result = prev / curr
                 break
             default:
@@ -95,6 +95,26 @@ const prevOperandTextElement = document.querySelector('[data-previous-operand]')
 const currOperandTextElement = document.querySelector('[data-current-operand]')
 
 const calculator = new Calculator(prevOperandTextElement, currOperandTextElement)
+
+document.addEventListener('keydown', (e) => {
+    let key = e.key
+    if (!isNaN(key) || key === '.') {
+        calculator.appendNumber(key)
+        calculator.updateDisplay()
+    } else if (['+', '-', '*', '/'].includes(key)) {
+        calculator.selectOperation(key)
+        calculator.updateDisplay()
+    } else if (key === 'Enter') {
+        calculator.compute()
+        calculator.updateDisplay()
+    } else if (key === 'Escape') {
+        calculator.clear()
+        calculator.updateDisplay()
+    } else if (key === 'Backspace') {
+        calculator.delete()
+        calculator.updateDisplay()
+    }
+})
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
